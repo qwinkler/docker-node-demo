@@ -2,6 +2,8 @@ version: '3.7'
 services:
   web:
     build: .
-    command: start
+    command: run start-configmap
     ports:
       - 80:8080
+    volumes:
+      - ./test.json:/etc/configs/rawdata.json

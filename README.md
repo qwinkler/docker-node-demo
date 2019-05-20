@@ -48,6 +48,25 @@ web_1  |
 docker-demo_web_1 exited with code 0
 ```
 
+### Run with an external file:  
+Basically - I made this is to test Kubernetes ConfigMap. But you can run it with the file as volume or docker configs(swarm).  
+To run with volumes: edit docker-compose.yml file. Change command to `run start-configmap`:   
+```yml
+command: run start-configmap
+```
+
+And add file as volume:  
+```yml
+volumes:
+  - /path/to/your.json:/etc/configs/rawdata.json
+```
+
+Then run docker-compose and check url:  
+```console
+$ curl localhost/configmap
+{"hello":"world"}
+```
+
 ### Run this app with db:  
 ```sh
 docker-compose -f db-compose.yml up --build

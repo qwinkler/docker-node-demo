@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "npm install inherits && mocha",
-    "start_db": "node index-db.js"
+    "start-db": "node index-db.js",
+    "start-configmap": "node index-configmap.js"
   },
   "engines": {
     "node": "^4.6.1"

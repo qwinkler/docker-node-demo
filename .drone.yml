@@ -2,7 +2,6 @@ kind: pipeline
 name: tg-my-default
 type: kubernetes
 
-
 workspace:
   path: /workspace
 
@@ -13,7 +12,7 @@ metadata:
 
 steps:
 - name: buildkitd
-  image: moby/buildkit:master-rootless
+  image: moby/buildkit:v0.7.2-rootless
   environment:
     BUILDKITD_FLAGS: "--oci-worker-no-process-sandbox"
   commands:

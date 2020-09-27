@@ -1,0 +1,19 @@
+kind: pipeline
+name: inwardz-def
+type: kubernetes
+
+workspace:
+  path: /workspace
+
+metadata:
+  annotations:
+    container.apparmor.security.beta.kubernetes.io/buildkitd: unconfined
+    container.seccomp.security.alpha.kubernetes.io/buildkitd: unconfined
+
+steps:
+- name: buildkitd
+  image: moby/buildkit:master-rootless
+  environment:
+    BUILDKITD_FLAGS: "--oci-worker-no-process-sandbox"
+  commands:
+    - buildctl-daemonless.sh build --frontend dockerfile.v0 --local context=/workspace --local dockerfile=/workspace

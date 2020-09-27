@@ -1,5 +1,5 @@
 kind: pipeline
-name: inwardz-def
+name: inwardz-default
 type: kubernetes
 
 workspace:

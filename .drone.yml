@@ -1,5 +1,5 @@
 kind: pipeline
-name: my-default
+name: tg-my-default
 type: kubernetes
 
 
